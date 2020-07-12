@@ -44,12 +44,12 @@ function generatePassword() {
         choices = alert("Choose at least one!");
 
     }
-
+//all positve
     else if (confirmSymbol && confirmNumber && confirmUppercase && confirmLowercase) {
 
         choices = symbol.concat(number, character, lowC);
     }
-    
+//3 positive    
     else if (confirmSymbol && confirmNumber && confirmUppercase) {
         choices = symbol.concat(number, lowC);
     }
@@ -62,15 +62,15 @@ function generatePassword() {
     else if (confirmNumber && confirmLowercase && confirmUppercase) {
         choices = number.concat(character, lowC);
     }
-  
+//2 positive 
     else if (confirmSymbol && confirmNumber) {
         choices = symbol.concat(number);
 
     } else if (confirmSymbol && confirmLowercase) {
-        choices = symbol.concat(alpha);
+        choices = symbol.concat(character);
 
     } else if (confirmSymbol && confirmUppercase) {
-        choices = symbol.concat(alpha2);
+        choices = symbol.concat(lowC);
     }
     else if (confirmLowercase && confirmNumber) {
         choices = character.concat(number);
@@ -81,7 +81,7 @@ function generatePassword() {
     } else if (confirmNumber && confirmUppercase) {
         choices = number.concat(lowC);
     }
-    
+    //1 positive
     else if (confirmSymbol) {
         choices = symbol;
     }
