@@ -104,7 +104,7 @@ function generatePassword() {
         var pickChoices = choices[Math.floor(Math.random() * choices.length)];
         password.push(pickChoices);
     }
-//    
+//I had to ask the internet about this one    
     var ps = password.join("");
     UserInput(ps);
     return ps;

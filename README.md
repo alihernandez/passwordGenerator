@@ -1,7 +1,7 @@
 # passwordGenerator
 Week 3 homework
 
-Generates random passwords based on user input
+Using functions, for loops, if/else statments generate random passwords based on user input.
 
 # ask how many letters the would like between 8-128
 
@@ -22,5 +22,8 @@ Generates random passwords based on user input
 # ask if user wants any lowercase letters in password
 
 ![](lowercase_letters.png)
+
+# print result in box.
+![](result.png)
 
 
