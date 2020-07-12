@@ -1,31 +1,117 @@
-// Assignment Code
+var enter;
+var confirmNumber;
+var confirmSymbol;
+var confirmUppercase;
+var confirmLowercase;
+
+// Possible characters
+symbol = ["!", "#", "$", "%", "&", "@", "^", "*", "(", ")"];
+number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+space = [];
+
+var choices;
+
+var toUpper = function (x) {
+    return x.toUpperCase();
+};
+
+lowC = character.map(toUpper);
+
+var get = document.querySelector("#generate");
+
+get.addEventListener("click", function () {
+    ps = generatePassword();
+    document.getElementById("password").placeholder = ps;
+});
+
 function generatePassword() {
+    enter = parseInt(prompt("Must be between 8 and 128 characters"));
+    if (!enter) {
+        alert("This needs a value");
+    } else if (enter < 8 || enter > 128) {
+        enter = parseInt(prompt("Choose between 8 and 128 characters!!"));
 
-var generateBtn = document.querySelector("#generate");
-var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()";
-var passwordLength = 16;
-var password = "";
+    } else {
+        confirmNumber = confirm("Care for any numbers?");
+        confirmSymbol = confirm("How about some symbols?");
+        confirmUppercase = confirm("Uppercase letters?");
+        confirmLowercase = confirm("Lowercase letters?");
+    };
 
-for (var i=0; i<passwordLength; i++){
-  var randomNumber = Math.floor(Math.random() * characters.length);
-  password += characters.substring(randomNumber, randomNumber + 1);
-  }
-  document.getElementById("password").value = password;
+    
+    if (!confirmSymbol && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+        choices = alert("Choose at least one!");
+
+    }
+
+    else if (confirmSymbol && confirmNumber && confirmUppercase && confirmLowercase) {
+
+        choices = symbol.concat(number, character, lowC);
+    }
+    
+    else if (confirmSymbol && confirmNumber && confirmUppercase) {
+        choices = symbol.concat(number, lowC);
+    }
+    else if (confirmSymbol && confirmNumber && confirmLowercase) {
+        choices = symbol.concat(number, character);
+    }
+    else if (confirmSymbol && confirmLowercase && confirmUppercase) {
+        choices = symbol.concat(character, lowC);
+    }
+    else if (confirmNumber && confirmLowercase && confirmUppercase) {
+        choices = number.concat(character, lowC);
+    }
+  
+    else if (confirmSymbol && confirmNumber) {
+        choices = symbol.concat(number);
+
+    } else if (confirmSymbol && confirmLowercase) {
+        choices = symbol.concat(alpha);
+
+    } else if (confirmSymbol && confirmUppercase) {
+        choices = symbol.concat(alpha2);
+    }
+    else if (confirmLowercase && confirmNumber) {
+        choices = character.concat(number);
+
+    } else if (confirmLowercase && confirmUppercase) {
+        choices = character.concat(lowC);
+
+    } else if (confirmNumber && confirmUppercase) {
+        choices = number.concat(lowC);
+    }
+    
+    else if (confirmSymbol) {
+        choices = symbol;
+    }
+    else if (confirmNumber) {
+        choices = number;
+    }
+    else if (confirmLowercase) {
+        choices = character;
+    }
+    
+    else if (confirmUppercase) {
+        choices = space.concat(lowC);
+    };
+
+    
+    var password = [];
+
+    
+    for (var i = 0; i < enter; i++) {
+        var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+        password.push(pickChoices);
+    }
+//    
+    var ps = password.join("");
+    UserInput(ps);
+    return ps;
 }
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+//prints to box
+function UserInput(ps) {
+    document.getElementById("password").textContent = ps;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 
