@@ -7,7 +7,6 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  
   <body>
     <div class="wrapper">
       <header>
@@ -25,16 +24,7 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
-      <div class="card-footer">
-        <input type="checkbox" id="Uppercase">Uppercase Characters
-        <input type="checkbox" id="Lowercase">Lowercase Characters
-        <input type="checkbox" id="SpecialCharacters">Special Characters
-      </div>
-      <div class="range-wrap" style="text-align: center;">
-        <input type="range" class="range" min="8" max="126">Password Length
-        <output class="bubble"></output>
-      </div>
-        <div class="card-footer">       
+        <div class="card-footer">
           <button id="generate" class="btn" onclick="generatePassword()">Generate Password</button>
         </div>
       </div>
