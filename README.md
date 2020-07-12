@@ -3,7 +3,7 @@ Week 3 homework
 
 Using functions, for loops, if/else statments generate random passwords based on user input.
 
-##### ask how many letters the would like between 8-128
+##### ask how many letters the user would like between 8-128
 
 ![](password_length.png)
 
@@ -27,5 +27,5 @@ Using functions, for loops, if/else statments generate random passwords based on
 ![](result.png)
 
 
-[**finished**product**] (https://alihernandez.github.io/passwordGenerator/)
+[**finished**product] (https://alihernandez.github.io/passwordGenerator/)
 
